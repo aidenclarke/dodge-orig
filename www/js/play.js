@@ -2,6 +2,8 @@
 
 'use strict';
 
+var Dodge = {};
+
 Dodge.Play = function () {};
 
 Dodge.Play.prototype = {
@@ -16,8 +18,6 @@ Dodge.Play.prototype = {
 
   update: function () {
   }
-
-
 
 }
 
