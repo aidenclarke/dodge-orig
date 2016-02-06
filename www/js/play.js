@@ -9,6 +9,7 @@ Dodge.Play = function () {};
 Dodge.Play.prototype = {
   
   init: function () {
+    console.log("onion-san");
   },
 
   /*
@@ -19,5 +20,5 @@ Dodge.Play.prototype = {
   update: function () {
   }
 
-}
+};
 
