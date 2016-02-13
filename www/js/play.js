@@ -14,7 +14,7 @@ Dodge.Play.prototype = {
 
   
   preload: function () {
-    this.load.image('background','assets/background.png',320,568);
+    this.load.image('background','assets/background.png');
   },
 
 
