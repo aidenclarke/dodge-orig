@@ -14,25 +14,44 @@ Dodge.Play.prototype = {
 
   
   preload: function () {
+    //Load the sprites
     this.load.image('background','assets/background.png');
-    this.load.spritesheet('falling','assets/falling.png',32,32,4);
+    this.load.spritesheet('player','assets/player.png',32,32,4);
 
   },
 
 
   create: function () {
-    //background that doesnt even scroll idk why 
+    //background scrolling
     this.background = this.add.tileSprite(0,0,320,568,"background");
     this.background.autoScroll(0,50);
     this.background.scale.set(1);
 
-    //falling thingy
-    this.falling = this.add.sprite(160,510,'falling');
-    this.falling.anchor.setTo(0.5, 0.5);
-    this.falling.smoothed = false;
-    this.falling.animations.add('turn');
-    this.falling.animations.play('turn',4,true);
-    this.falling.scale.set(2);
+    //player thingy
+    this.player = this.add.sprite(160,510,'player');
+    this.player.anchor.setTo(0.5, 0.5);
+    this.player.smoothed = false;
+    this.player.animations.add('turn');
+    this.player.animations.play('turn',100,true);
+    this.player.scale.set(2);
+
+    //movey key
+    this.cursors = game.input.keyboard.createCursorKeys();
+  },
+
+  update: function () {
+    if (this.cursors.left.isDown) {
+      this.player.x -= 5;
+    }
+    if (this.cursors.right.isDown) {
+      this.player.x += 5;
+    }
+    if (this.cursors.up.isDown) {
+      this.player.y -= 5;
+    }
+    if (this.cursors.down.isDown) {
+      this.player.y += 5;
+    }
   }
 
 };
