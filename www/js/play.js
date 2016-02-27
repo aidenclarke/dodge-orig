@@ -40,6 +40,7 @@ Dodge.Play.prototype = {
   },
 
   update: function () {
+    //moving! yipppeeeee
     if (this.cursors.left.isDown) {
       this.player.x -= 5;
     }
@@ -52,6 +53,7 @@ Dodge.Play.prototype = {
     if (this.cursors.down.isDown) {
       this.player.y += 5;
     }
+
   }
 
 };
