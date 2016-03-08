@@ -49,14 +49,20 @@ Dodge.Play.prototype = {
     this.falling2.smoothed = false;
     this.falling2.scale.set(2.5);
 
+    //falling thingy again again
+    this.falling3 = this.add.sprite(90,200,'falling');
+    this.falling3.smoothed = false;
+    this.falling3.scale.set(2.5);
+
+
     //movey key
     this.cursors = game.input.keyboard.createCursorKeys();
     //Music 
     this.music = game.add.audio('music');
   
-    if (1 === 1) {
-      this.music.play();
-    }
+    //loop e da loop the music
+    
+    this.music.play();
   },
 
   update: function () {
@@ -69,17 +75,34 @@ Dodge.Play.prototype = {
       this.player.x += 5;
     }
 
-    this.falling.y += 10;
-    this.falling2.y +=11;
+    
+    if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
+      this.player.x -= 5;
+    }
+
+    if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {
+      this.player.x += 5;
+    }
+    
+
+
+    this.falling.y += 20;
+    this.falling2.y += 17;
+    this.falling3.y += 15;
 
     if (this.falling.y > 568) {
-      this.falling.x = game.rnd.integerInRange(5, 315);
+      this.falling.x = game.rnd.integerInRange(5, 310);
       this.falling.y =  -15;
     }
 
     if (this.falling2.y > 568) {
-      this.falling2.x = game.rnd.integerInRange(5, 315);
+      this.falling2.x = game.rnd.integerInRange(5, 310);
       this.falling2.y = -15;
+    }
+
+    if (this.falling3.y > 568) {
+      this.falling3.x = game.rnd.integerInRange(5, 310);
+      this.falling3.y = -15;
     }
 
 
