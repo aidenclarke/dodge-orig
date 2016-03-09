@@ -86,23 +86,23 @@ Dodge.Play.prototype = {
     
 
 
-    this.falling.y += 20;
-    this.falling2.y += 17;
+    this.falling.y += 14;
+    this.falling2.y += 13;
     this.falling3.y += 15;
 
     if (this.falling.y > 568) {
       this.falling.x = game.rnd.integerInRange(5, 310);
-      this.falling.y =  -15;
+      this.falling.y =  -13.2;
     }
 
     if (this.falling2.y > 568) {
       this.falling2.x = game.rnd.integerInRange(5, 310);
-      this.falling2.y = -15;
+      this.falling2.y = -13.2;
     }
 
     if (this.falling3.y > 568) {
       this.falling3.x = game.rnd.integerInRange(5, 310);
-      this.falling3.y = -15;
+      this.falling3.y = -13.2;
     }
 
 

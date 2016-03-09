@@ -17,11 +17,13 @@
     <p>im not sure anymore</p>
     <script src="js/phaser.js"></script>
     <script src="js/play.js"></script>
+    <script src="js/start.js"></script>
     <script>
       var game = new Phaser.Game(320,568);
       console.log("you on kazoo!");
       game.state.add('play',Dodge.Play);
-      game.state.start('play');
+      game.state.add('start',Dodge.Start);
+      game.state.start('start');
     </script>
   </body>
 </html>
