@@ -16,7 +16,7 @@ Dodge.Play.prototype = {
   preload: function () {
     //Load the sprites
     this.load.image('background','assets/background.png');
-    this.load.spritesheet('player','assets/player.png',32,32,4);
+    this.load.spritesheet('player','assets/player_animation.png',32,32,4);
     this.load.image('falling','assets/falling.png',32,32);
 
     //load audio
