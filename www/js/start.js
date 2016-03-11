@@ -18,7 +18,7 @@ Dodge.Start.prototype  = {
         "",
         {
             size: "32px",
-            fill: "#FFF",
+            fill: "black",
             align: "center"
         }
     );
@@ -35,11 +35,12 @@ Dodge.Start.prototype  = {
   },
 
   update: function () {
-    this.startText.setText("TOUCH P\nTO PLAY");
+    this.startText.setText("PRESS P\nTO PLAY");
 
     if (this.input.keyboard.isDown(Phaser.Keyboard.P)) {
       this.game.state.start('play');
     }
+
   }
 
 }

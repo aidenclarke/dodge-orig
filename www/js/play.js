@@ -61,12 +61,13 @@ Dodge.Play.prototype = {
     this.music = game.add.audio('music');
   
     //loop e da loop the music
+    this.music.play();  
     
-    this.music.play();
   },
 
   update: function () {
   
+
     //moving! yipppeeeee
     if (this.cursors.left.isDown) {
       this.player.x -= 5;
