@@ -18,6 +18,7 @@ Dodge.Play.prototype = {
     this.load.image('background','assets/background.png');
     this.load.spritesheet('player','assets/player_animation.png',32,32,4);
     this.load.image('falling','assets/falling.png',32,32);
+    this.load.spritesheet('beam','assets/beam_power.png',32,32);
 
     //load audio
     this.load.audio('music', 'assets/music.mp3');
@@ -30,6 +31,7 @@ Dodge.Play.prototype = {
     this.background = this.add.tileSprite(0,0,320,568,"background");
     this.background.autoScroll(0,50);
     this.background.scale.set(1);
+
 
     //player thingy
     this.player = this.add.sprite(160,510,'player');
@@ -63,6 +65,9 @@ Dodge.Play.prototype = {
     //loop e da loop the music
     this.music.play();  
     
+
+    //score
+
   },
 
   update: function () {
