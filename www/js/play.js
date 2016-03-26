@@ -27,6 +27,8 @@ Dodge.Play.prototype = {
 
 
   create: function () {
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     //background scrolling
     this.background = this.add.tileSprite(0,0,320,568,"background");
     this.background.autoScroll(0,50);
@@ -36,37 +38,36 @@ Dodge.Play.prototype = {
     //player thingy
     this.player = this.add.sprite(160,510,'player');
     this.player.anchor.setTo(0.5, 0.5);
-    this.player.smoothed = false;
+    //this.player.smoothed = false;
     this.player.animations.add('turn');
     this.player.animations.play('turn',10,true);
-    this.player.scale.set(2);
+    //this.player.scale.set(2);
+    game.physics.arcade.enable(this.player);
+    this.player.body.collideWorldBounds = true;
+    this.player.body.bounce.setTo(0.3);
+    this.player.body.drag.setTo(3000);
+
 
     //falling thingy
     this.falling = this.add.sprite(90,200,'falling');
-    this.falling.smoothed = false;
-    this.falling.scale.set(2.5);
+    //this.falling.smoothed = false;
+    //this.falling.scale.set(2.5);
+    this.falling.anchor.set(0.5,0.5);
+    game.physics.arcade.enable(this.falling);
+    this.falling.body.gravity.y = 8000;
 
-    //falling thingy again
-    this.falling2 = this.add.sprite(90,200,'falling');
-    this.falling2.smoothed = false;
-    this.falling2.scale.set(2.5);
-
-    //falling thingy again again
-    this.falling3 = this.add.sprite(90,200,'falling');
-    this.falling3.smoothed = false;
-    this.falling3.scale.set(2.5);
 
 
     //movey key
     this.cursors = game.input.keyboard.createCursorKeys();
+
+
+    /*
     //Music 
     this.music = game.add.audio('music');
   
-    //loop e da loop the music
     this.music.play();  
-    
-
-    //score
+    */
 
   },
 
@@ -75,41 +76,22 @@ Dodge.Play.prototype = {
 
     //moving! yipppeeeee
     if (this.cursors.left.isDown) {
-      this.player.x -= 5;
+      this.player.body.velocity.x = -800
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 5;
+      this.player.body.velocity.x = 800
     }
 
     
-    if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
-      this.player.x -= 5;
+
+
+
+    if (this.falling.y >= 568) {
+      this.falling.y = -32;
+      this.falling.body.velocity.y = 0;
+      this.falling.x = game.rnd.integerInRange(0,320);
     }
 
-    if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {
-      this.player.x += 5;
-    }
-    
-
-
-    this.falling.y += 14;
-    this.falling2.y += 13;
-    this.falling3.y += 15;
-
-    if (this.falling.y > 568) {
-      this.falling.x = game.rnd.integerInRange(5, 310);
-      this.falling.y =  -13.2;
-    }
-
-    if (this.falling2.y > 568) {
-      this.falling2.x = game.rnd.integerInRange(5, 310);
-      this.falling2.y = -13.2;
-    }
-
-    if (this.falling3.y > 568) {
-      this.falling3.x = game.rnd.integerInRange(5, 310);
-      this.falling3.y = -13.2;
-    }
 
 
   }

@@ -23,8 +23,10 @@ Dodge.Start.prototype  = {
         }
     );
 
+
     this.startText.anchor.setTo(0.5, 0.5);
     this.startText.smoothed = false;
+
 
     this.player = this.add.sprite(160,200,'player');
     this.player.scale.set(3);
@@ -40,6 +42,7 @@ Dodge.Start.prototype  = {
     if (this.input.keyboard.isDown(Phaser.Keyboard.P)) {
       this.game.state.start('play');
     }
+
 
   }
 
